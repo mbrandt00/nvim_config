@@ -1,0 +1,12 @@
+!colors/astronvim.lua
+colors/*
+docs
+ginit.vim
+lua/user
+plugin
+ftplugin
+spell
+.luarc.json
+.DS_Store
+github
+github.pub
