@@ -11,6 +11,9 @@ return {
 
   "mfussenegger/nvim-lint",
 
-  'wakatime/vim-wakatime'
- }
+  "wakatime/vim-wakatime",
 
+  "mfussenegger/nvim-dap",
+
+  "jay-babu/mason-nvim-dap.nvim",
+}
