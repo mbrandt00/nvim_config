@@ -55,5 +55,8 @@ return {
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>m", ":Telescope marks<CR>", { noremap = true, silent = true, desc = "Fuzzy marks" })
     keymap.set("n", "<leader>b", ":Telescope buffers<CR>", { noremap = true, silent = true, desc = "Fuzzy buffers" })
+    keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
+      noremap = true,
+    })
   end,
 }

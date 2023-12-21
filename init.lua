@@ -8,6 +8,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.tabstop = 1
+-- vim.opt.clipboard =unnamed
 -- Press Tab to save and switch to the next buffer
 vim.api.nvim_set_keymap(
   "n",

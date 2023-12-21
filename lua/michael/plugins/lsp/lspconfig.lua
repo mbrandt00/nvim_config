@@ -10,12 +10,11 @@ return {
     local lspconfig = require "lspconfig"
 
     -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
     local keymap = vim.keymap -- for conciseness
 
     local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_client, bufnr)
       opts.buffer = bufnr
 
       -- set keybinds
@@ -28,8 +27,8 @@ return {
       opts.desc = "Show LSP definitions"
       keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
-      opts.desc = "Show LSP implementations"
-      keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+      -- opts.desc = "Show LSP implementations"
+      -- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
       opts.desc = "Show LSP type definitions"
       keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
@@ -60,7 +59,8 @@ return {
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
@@ -76,11 +76,16 @@ return {
       on_attach = on_attach,
     }
 
+    lspconfig["solargraph"].setup {
+      on_attach = on_attach,
+      filetypes = { "ruby" },
+      capabilities = capabilities,
+    }
+
     -- configure typescript server with plugin
     lspconfig["tsserver"].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      -- cmd = { "tsserver", "--stdio" },
       filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "svelte" },
     }
 

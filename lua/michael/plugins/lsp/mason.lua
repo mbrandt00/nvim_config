@@ -15,6 +15,8 @@ return {
 
     local mason_tool_installer = require "mason-tool-installer"
 
+    local mason_nvim_dap = require "mason-nvim-dap"
+
     -- enable mason and configure icons
     mason.setup {
       ui = {
@@ -26,9 +28,11 @@ return {
       },
     }
 
-    require("mason-nvim-dap").setup {
+    mason_nvim_dap.setup {
       ensure_installed = { "python" },
+      automatic_installation = true,
     }
+
     mason_lspconfig.setup {
       -- list of servers for mason to install
       ensure_installed = {
@@ -43,6 +47,7 @@ return {
         "prismals",
         "pyright",
         "rubocop",
+        "solargraph",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
