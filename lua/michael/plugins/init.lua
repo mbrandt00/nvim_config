@@ -7,8 +7,6 @@ return {
 
   "tpope/vim-fugitive",
 
-  "airblade/vim-gitgutter",
-
   "mfussenegger/nvim-lint",
 
   "wakatime/vim-wakatime",

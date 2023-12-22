@@ -36,7 +36,7 @@ return {
         "javascript",
         "html",
         "python",
-       "sql",
+        "sql",
         "svelte",
         "typescript",
         "vimdoc",
@@ -44,6 +44,13 @@ return {
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
+      autotag = {
+        enable = true,
+      },
+      fold = {
+        enable = true,
+        custom_foldexpr = "nvim_treesitter#foldexpr()",
+      },
     }
   end,
 }
