@@ -8,6 +8,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.tabstop = 1
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.opt.clipboard =unnamed
 -- Press Tab to save and switch to the next buffer
 vim.api.nvim_set_keymap(
@@ -25,3 +27,12 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "<leader>bd", ":bdelete<CR>", { noremap = true })
+vim.api.nvim_exec(
+  [[
+  augroup MyAutoCmds
+    autocmd!
+    autocmd BufRead * normal zR
+  augroup END
+]],
+  true
+)
