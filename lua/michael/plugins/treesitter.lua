@@ -29,7 +29,18 @@ return {
     }
 
     configs.setup {
-      ensure_installed = { "ruby", "lua", "vim", "javascript", "html", "python", "sql", "svelte", "typescript" },
+      ensure_installed = {
+        "ruby",
+        "lua",
+        "vim",
+        "javascript",
+        "html",
+        "python",
+       "sql",
+        "svelte",
+        "typescript",
+        "vimdoc",
+      },
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
