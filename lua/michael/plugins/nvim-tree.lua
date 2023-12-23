@@ -23,13 +23,46 @@ return {
           enable = true,
         },
         icons = {
+          webdev_colors = true,
+          git_placement = "before",
+          modified_placement = "after",
+          padding = " ",
+          symlink_arrow = " ➛ ",
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+            git = true,
+            modified = true,
+          },
+
           glyphs = {
+            default = "",
+            symlink = "",
+            bookmark = "",
+            modified = "●",
             folder = {
-              arrow_closed = "", -- arrow when folder is closed
-              arrow_open = "", -- arrow when folder is open
+              arrow_closed = "",
+              arrow_open = "",
+              default = "",
+              open = "",
+              empty = "",
+              empty_open = "",
+              symlink = "",
+              symlink_open = "",
+            },
+
+            git = {
+              unstaged = "✗",
+              staged = "✓",
+              unmerged = "",
+              renamed = "➜",
+              untracked = "★",
+              deleted = "",
+              ignored = "◌",
             },
           },
-        },
+        }, -- end of icons rendering
       },
       -- disable window_picker for
       -- explorer to work well with
@@ -48,7 +81,14 @@ return {
       git = {
         ignore = false,
       },
+      ui = {
+        confirm = {
+          remove = true,
+          trash = true,
+        },
+      },
     }
+    vim.cmd "highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE"
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
