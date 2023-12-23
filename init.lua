@@ -10,3 +10,5 @@ vim.opt.expandtab = false
 vim.opt.tabstop = 1
 -- vim.opt.clipboard =unnamed
 vim.api.nvim_set_keymap("n", "<leader>bd", ":bdelete<CR>", { noremap = true })
+vim.cmd "hi LineNr guifg=#61afef ctermfg=blue"
+vim.cmd "hi CursorLineNr guifg=#61afef ctermfg=blue"
